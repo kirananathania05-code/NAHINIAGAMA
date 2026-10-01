@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikat - Weda Quest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .cert-border { max-width: 900px; margin: 3rem auto; padding: 3rem; background: #FFF; border: 10px double var(--primary-gold); text-align: center; box-shadow: 0 0 30px rgba(0,0,0,0.1); position: relative; }
+        .cert-title { font-size: 2.2rem; color: var(--secondary-dark); margin-bottom: 1rem; }
+        .cert-name { font-size: 2.5rem; color: var(--primary-saffron); border-bottom: 2px solid var(--primary-gold); display: inline-block; padding: 0 2rem; margin: 1rem 0; }
+        @media print { .navbar, .no-print { display: none; } .cert-border { border: 5px solid #000; box-shadow: none; } }
+    </style>
+</head>
+<body class="bg-parchment">
+    <header class="navbar no-print">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo"><i class="fa-solid fa-om logo-icon"></i><div class="brand-text"><span class="title">WEDA QUEST</span><span class="subtitle">DARSANA EDITION</span></div></a>
+        </div>
+    </header>
+
+    <div class="cert-border">
+        <i class="fa-solid fa-om" style="font-size: 4rem; color: var(--primary-gold);"></i>
+        <h1 class="cert-title">SERTIFIKAT KETUNTASAN PENJELAJAH</h1>
+        <p>Dengan ini menyatakan bahwa:</p>
+        <h2 class="cert-name" id="certName">Nama Siswa</h2>
+        <p id="certSchool">SMA Negeri 1 Penjelajah</p>
+        <br>
+        <p>Telah berhasil menyelesaikan seluruh penjelajahan modul pembelajaran dan tantangan evaluasi akhir pada media interaktif <strong>WEDA QUEST: DARSANA EDITION</strong> dengan perolehan nilai:</p>
+        <div style="font-size: 2rem; font-weight: 700; color: var(--primary-gold); margin: 1rem 0;" id="certScore">NILAI: 100 / 100</div>
+        <p>Predikat: <strong id="certPredikat">SANGAT BAIK (UTAMA)</strong></p>
+        <br>
+        <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+            <div>
+                <p>Mengetahui,</p>
+                <strong>Maharsi Wyasa</strong>
+                <p>Pemandu Darsana</p>
+            </div>
+            <div>
+                <p>Tanggal Kelulusan:</p>
+                <strong id="certDate">30 September 2026</strong>
+                <p>Sistem Weda Quest</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-bottom: 3rem;">
+        <button class="btn btn-primary" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak / Simpan PDF Sertifikat</button>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('certName').textContent = appState.userProfile.name;
+            document.getElementById('certSchool').textContent = appState.userProfile.school;
+            const score = appState.quizHistory.tryoutScore || 85;
+            document.getElementById('certScore').textContent = `NILAI TRY OUT: ${score} / 100`;
+            document.getElementById('certDate').textContent = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+        });
+    </script>
+</body>
+</html>

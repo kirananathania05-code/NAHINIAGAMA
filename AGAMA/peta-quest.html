@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Quest - Weda Quest: Darsana Edition</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .map-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quest-card {
+            background: #FFFFFF;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--border-gold);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+            border-color: var(--primary-gold);
+        }
+
+        .quest-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .quest-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-dark);
+            color: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .quest-title {
+            font-size: 1.15rem;
+            color: var(--secondary-dark);
+            margin: 0;
+        }
+
+        .quest-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .quest-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-quest {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-read {
+            background: var(--secondary-dark);
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+        }
+
+        .btn-read:hover {
+            background: var(--primary-gold);
+            color: var(--secondary-dark);
+        }
+    </style>
+</head>
+<body class="bg-parchment">
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-om logo-icon"></i>
+                <div class="brand-text">
+                    <span class="title">WEDA QUEST</span>
+                    <span class="subtitle">DARSANA EDITION</span>
+                </div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Beranda</a>
+                <a href="peta-quest.html" class="nav-link active"><i class="fa-solid fa-map-location-dot"></i> Peta Quest</a>
+                <a href="materi.html" class="nav-link"><i class="fa-solid fa-book-open"></i> Materi</a>
+                <a href="flashcard.html" class="nav-link"><i class="fa-solid fa-clone"></i> Flashcard</a>
+                <a href="tantangan.html" class="nav-link"><i class="fa-solid fa-scroll"></i> Tantangan</a>
+                <a href="profil.html" class="nav-link"><i class="fa-solid fa-user-shield"></i> Profil</a>
+            </nav>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="map-container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h1 style="color: var(--secondary-dark); font-family: 'Cinzel', serif;">Peta Petualangan Darsana</h1>
+            <p style="color: #64748B;">Pilih lokasi aliran Darsana yang ingin kamu pelajari di bawah ini:</p>
+        </div>
+
+        <div class="map-grid" id="questMapGrid">
+            <!-- Lokasi 0: Pengantar -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-door-open"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 0</span>
+                        <h3 class="quest-title">Gerbang Darsana</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Pengantar dasar mengenai filsafat Hindu, makna Darsana, dan pembagian Astika & Nastika.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=gate" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 1: Nyaya -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 1</span>
+                        <h3 class="quest-title">Kuil Nyaya</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Pelajari ajaran Maharsi Gautama mengenai sistem logika rasional dan 4 Catur Pramana.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=nyaya" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 2: Waisesika -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-atom"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 2</span>
+                        <h3 class="quest-title">Laboratorium Waisesika</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Pelajari pemikiran Maharsi Kanada mengenai konsep Atom (Anu) dan 7 Padartha realitas semesta.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=waisesika" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 3: Samkhya -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-yin-yang"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 3</span>
+                        <h3 class="quest-title">Lembah Samkhya</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Memahami dualisme antara Purusa (Kesadaran) dan Prakerti (Materi) serta 25 Tattwa ajaran Maharsi Kapila.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=samkhya" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 4: Yoga -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-spa"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 4</span>
+                        <h3 class="quest-title">Puncak Yoga</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Disiplin spiritual Maharsi Patanjali melalui 8 tangga Astangga Yoga untuk mengendalikan pikiran.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=yoga" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 5: Mimamsa -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-scroll"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 5</span>
+                        <h3 class="quest-title">Altare Mimamsa</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Menelaah pentingnya Yajna, keagungan Weda, dan pelaksanaan kewajiban ritual ajaran Maharsi Jaimini.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=mimamsa" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+
+            <!-- Lokasi 6: Vedanta -->
+            <div class="quest-card">
+                <div class="quest-header">
+                    <div class="quest-icon"><i class="fa-solid fa-sun"></i></div>
+                    <div>
+                        <span style="font-size:0.75rem; color:#8B4513; font-weight:700;">LOKASI 6</span>
+                        <h3 class="quest-title">Istana Wedanta</h3>
+                    </div>
+                </div>
+                <p class="quest-desc">Puncak filsafat Upanisad mengenai penunggalan Brahman dan Atman ajaran Maharsi Badarayana.</p>
+                <div class="quest-actions">
+                    <a href="materi.html?bab=vedanta" class="btn-quest btn-read"><i class="fa-solid fa-book-open"></i> Buka Materi</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 <strong>Weda Quest: Darsana Edition</strong>.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

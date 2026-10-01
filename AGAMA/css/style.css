@@ -1,0 +1,477 @@
+/* ==========================================================================
+   WEDA QUEST: DARSANA EDITION - MAIN STYLESHEET
+   ========================================================================== */
+
+:root {
+    --primary-gold: #D4AF37;
+    --primary-gold-light: #FFF2B2;
+    --primary-saffron: #FF7F11;
+    --secondary-dark: #0D1B2A;
+    --secondary-blue: #1B263B;
+    --accent-cyan: #00B4D8;
+    --bg-parchment: #FDFBF7;
+    --text-dark: #1E293B;
+    --text-muted: #64748B;
+    --card-bg: #FFFFFF;
+    --border-gold: #E6C280;
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.4);
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-parchment);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography Rules */
+h1, h2, h3, h4, .brand-text {
+    font-family: var(--font-heading);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Navbar Component */
+.navbar {
+    background-color: var(--secondary-dark);
+    border-bottom: 3px solid var(--primary-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary-gold);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--primary-gold);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-text .title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-gold);
+}
+
+.brand-text .subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: #FFF;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: #E2E8F0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-gold);
+    background-color: rgba(212, 175, 55, 0.15);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    background: linear-gradient(135deg, #1B263B 0%, #0D1B2A 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-gold);
+    color: #FFF;
+    overflow: hidden;
+}
+
+.badge-tag {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--primary-gold);
+    border: 1px solid var(--primary-gold);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #CBD5E1;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.hero-story {
+    font-size: 1rem;
+    color: #E2E8F0;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #B8860B 100%);
+    color: var(--secondary-dark);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Wyasa Guide & Gems Illustration */
+.hero-illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.wyasa-guide {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-gold);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.avatar-frame {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--secondary-dark);
+    box-shadow: 0 0 15px var(--primary-gold);
+}
+
+.speech-bubble {
+    font-size: 0.9rem;
+    color: #F1F5F9;
+}
+
+.speech-bubble .guide-name {
+    display: block;
+    margin-top: 5px;
+    color: var(--primary-gold);
+    font-weight: 700;
+}
+
+.gems-hex-grid {
+    display: flex;
+    gap: 15px;
+}
+
+.gem-slot {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gem-slot:hover {
+    transform: scale(1.15);
+}
+
+/* Gem Colors */
+.gem-icon.nyaya { color: #00B4D8; filter: drop-shadow(0 0 5px #00B4D8); }
+.gem-icon.waisesika { color: #52B788; filter: drop-shadow(0 0 5px #52B788); }
+.gem-icon.samkhya { color: #9D4EDD; filter: drop-shadow(0 0 5px #9D4EDD); }
+.gem-icon.yoga { color: #FF9E00; filter: drop-shadow(0 0 5px #FF9E00); }
+.gem-icon.mimamsa { color: #E63946; filter: drop-shadow(0 0 5px #E63946); }
+.gem-icon.vedanta { color: #48CAE4; filter: drop-shadow(0 0 5px #48CAE4); }
+
+/* Dashboard Section */
+.dashboard-section {
+    max-width: 1280px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    color: var(--secondary-dark);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.dash-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid #E2E8F0;
+    box-shadow: var(--shadow-soft);
+}
+
+.user-card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.user-avatar-wrapper {
+    position: relative;
+}
+
+.avatar-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--secondary-dark);
+    color: var(--primary-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    border: 2px solid var(--primary-gold);
+}
+
+.level-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: var(--primary-saffron);
+    color: #FFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.xp-bar-container {
+    margin-top: 10px;
+}
+
+.xp-bar-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.xp-progress-outer {
+    height: 10px;
+    background: #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.xp-progress-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-saffron));
+    transition: width 0.5s ease;
+}
+
+/* Quick Access Cards */
+.quick-access-section {
+    max-width: 1280px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.quick-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.quick-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-gold);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #FFF;
+}
+
+.bg-gold { background: var(--primary-gold); }
+.bg-blue { background: var(--accent-cyan); }
+.bg-purple { background: #9D4EDD; }
+.bg-red { background: #E63946; }
+
+/* ==========================================
+   STYLING GAMBAR HERO (SISI KIRI)
+   ========================================== */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi hero menjadi 2 kolom (kiri & kanan) */
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 380px; /* Ukuran maksimal gambar */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); /* Bayangan emas */
+    transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.03);
+}
+
+/* Penyesuaian untuk layar HP/Tablet agar gambar tetap rapi */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    }
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-dark);
+    color: #94A3B8;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 2px solid var(--primary-gold);
+    font-size: 0.9rem;
+}

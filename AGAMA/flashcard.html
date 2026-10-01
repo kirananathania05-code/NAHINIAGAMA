@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard - Weda Quest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .flashcard-wrapper { max-width: 600px; margin: 3rem auto; text-align: center; }
+        .card-container { perspective: 1000px; height: 300px; cursor: pointer; margin-bottom: 2rem; }
+        .card-inner { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+        .card-inner.flipped { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: var(--radius-lg); border: 2px solid var(--border-gold); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; box-shadow: var(--shadow-soft); }
+        .card-front { background: var(--secondary-dark); color: var(--primary-gold); }
+        .card-back { background: #FFF; color: var(--text-dark); transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="bg-parchment">
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo"><i class="fa-solid fa-om logo-icon"></i><div class="brand-text"><span class="title">WEDA QUEST</span><span class="subtitle">DARSANA EDITION</span></div></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Beranda</a>
+                <a href="peta-quest.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Peta Quest</a>
+                <a href="materi.html" class="nav-link"><i class="fa-solid fa-book-open"></i> Materi</a>
+                <a href="flashcard.html" class="nav-link active"><i class="fa-solid fa-clone"></i> Flashcard</a>
+                <a href="tantangan.html" class="nav-link"><i class="fa-solid fa-scroll"></i> Tantangan</a>
+                <a href="profil.html" class="nav-link"><i class="fa-solid fa-user-shield"></i> Profil</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flashcard-wrapper">
+        <h2><i class="fa-solid fa-layer-group"></i> Flashcard Kebijaksanaan Darsana</h2>
+        <p style="margin-bottom: 1.5rem;">Klik kartu untuk membalik & melihat jawaban!</p>
+
+        <div class="card-container" onclick="this.querySelector('.card-inner').classList.toggle('flipped')">
+            <div class="card-inner" id="cardInner">
+                <div class="card-front">
+                    <i class="fa-solid fa-circle-question" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 id="cardQuestion">Pertanyaan Loading...</h3>
+                </div>
+                <div class="card-back">
+                    <i class="fa-solid fa-lightbulb" style="font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 1rem;"></i>
+                    <p id="cardAnswer" style="font-size: 1.1rem; font-weight: 600;">Jawaban Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem;">
+            <button class="btn btn-secondary" onclick="prevCard()"><i class="fa-solid fa-arrow-left"></i> Sebelumnya</button>
+            <button class="btn btn-primary" onclick="nextCard()">Berikutnya <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        let currentCard = 0;
+        const flashcards = DARSANA_DATA.quizBank;
+
+        function updateCard() {
+            document.getElementById('cardInner').classList.remove('flipped');
+            setTimeout(() => {
+                document.getElementById('cardQuestion').textContent = flashcards[currentCard].question;
+                const correctIdx = flashcards[currentCard].answer;
+                document.getElementById('cardAnswer').textContent = flashcards[currentCard].options[correctIdx];
+            }, 200);
+        }
+
+        function nextCard() { currentCard = (currentCard + 1) % flashcards.length; updateCard(); }
+        function prevCard() { currentCard = (currentCard - 1 + flashcards.length) % flashcards.length; updateCard(); }
+
+        document.addEventListener('DOMContentLoaded', updateCard);
+    </script>
+</body>
+</html>

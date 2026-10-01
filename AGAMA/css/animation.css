@@ -1,0 +1,20 @@
+/* Keyframe Animations */
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4); }
+}
+
+.btn-glow {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes gemFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.gem-slot {
+    animation: gemFloat 3s ease-in-out infinite;
+}
